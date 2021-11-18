@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 
 // IMPORT LIBRARY
 import AsyncStorage from '@react-native-async-storage/async-storage';
