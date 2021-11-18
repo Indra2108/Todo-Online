@@ -11,6 +11,10 @@ export default class Dashboard extends Component {
     removeDataStorage = async () => {
         try {
             await AsyncStorage.removeItem('token')
+                .then(() => {
+                    this.props.navigation.replace('Mengsplash')
+                })
+                .catch((error) => { console.log(error) })
         } catch (error) {
             console.log(error)
         }
@@ -21,7 +25,7 @@ export default class Dashboard extends Component {
         return (
             <View style={styles.container}>
                 <Text>Ini Dashboard</Text>
-                
+
                 <TouchableOpacity style={styles.tombol} onPress={() => this.removeDataStorage()}>
                     <Text style={styles.tulisantombol}>HAPUS TOKEN</Text>
                 </TouchableOpacity>
