@@ -68,13 +68,12 @@ export default class Login extends Component {
         })
             .then((response) => response.json())
             .then((mengrespon) => {
-                console.log(mengrespon)
                 if (mengrespon.message) {
+                    console.log(mengrespon)
                     this.setState({ token: mengrespon.token.original.access_token })
                     this.saveDataStorage(this.state.token)
                     this.props.navigation.replace('Dashboard')
                 }
-
             })
             .catch(error => { console.log(error) })
     }
@@ -103,7 +102,7 @@ export default class Login extends Component {
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity style={styles.tombol} onPress={() => this.props.navigation.replace('Dashboard')}>
+                <TouchableOpacity style={styles.tombol} onPress={() => this.loginData()}>
                     <Text style={styles.tulisantombol}>LOGIN</Text>
                 </TouchableOpacity>
 
