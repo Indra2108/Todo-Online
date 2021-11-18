@@ -69,8 +69,12 @@ export default class Login extends Component {
             .then((response) => response.json())
             .then((mengrespon) => {
                 console.log(mengrespon)
-                this.setState({ token: mengrespon.token.original.access_token })
-                this.saveDataStorage(this.state.token)
+                if (mengrespon.message) {
+                    this.setState({ token: mengrespon.token.original.access_token })
+                    this.saveDataStorage(this.state.token)
+                    this.props.navigation.replace('Dashboard')
+                }
+
             })
             .catch(error => { console.log(error) })
     }
@@ -99,9 +103,14 @@ export default class Login extends Component {
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity style={styles.tombol} onPress={() => this.loginData()}>
+                <TouchableOpacity style={styles.tombol} onPress={() => this.props.navigation.replace('Dashboard')}>
                     <Text style={styles.tulisantombol}>LOGIN</Text>
                 </TouchableOpacity>
+
+                <View style={styles.punyaakun}>
+                    <Text>Belum punya akun? </Text>
+                    <Text onPress={() => this.props.navigation.navigate('Register')} style={styles.tekspunyaakun}>REGISTER</Text>
+                </View>
 
                 {/* <TouchableOpacity style={styles.tombol} onPress={() => alert(this.state.token)}>
                     <Text style={styles.tulisantombol}>GET TOKEN FROM API</Text>

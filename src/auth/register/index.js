@@ -90,6 +90,11 @@ export default class Register extends Component {
                 <TouchableOpacity style={styles.tombol} onPress={() => this.registerData()}>
                     <Text style={styles.tulisantombol}>REGISTER</Text>
                 </TouchableOpacity>
+
+                <View style={styles.punyaakun}>
+                    <Text>Sudah punya akun? </Text>
+                    <Text onPress={() => this.props.navigation.navigate('Login')} style={styles.tekspunyaakun}>Login</Text>
+                </View>
             </View>
         )
     }

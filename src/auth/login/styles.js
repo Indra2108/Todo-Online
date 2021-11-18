@@ -43,4 +43,12 @@ export default StyleSheet.create({
     login: {
         fontWeight: 'bold'
     },
+    punyaakun: {
+        justifyContent: 'center',
+        flexDirection: 'row',
+        marginTop: 30
+    },
+    tekspunyaakun: {
+        fontWeight: 'bold'
+    }
 })

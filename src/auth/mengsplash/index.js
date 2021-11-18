@@ -10,7 +10,7 @@ export default class Mengsplash extends Component {
             .then(mydata => {
                 if (mydata === null) {
                     console.log('Token Kosong!')
-                    this.props.navigation.replace('Home')
+                    this.props.navigation.replace('Login')
                 } else {
                     this.props.navigation.replace('Dashboard')
                 }
