@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { View, Text } from 'react-native';
 
 // import screen
-import Mengsplash from "./src/mengsplash";
-import Dashboard from "./src/dashboard";
-import Home from './src/home'
-import Login from './src/login';
-import Register from './src/register';
+import Mengsplash from "./src/auth/mengsplash";
+import Dashboard from "./src/auth/dashboard";
+import Home from './src/auth/home'
+import Login from './src/auth/login';
+import Register from './src/auth/register';
 
 // import library
 import { NavigationContainer } from '@react-navigation/native';

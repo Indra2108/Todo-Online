@@ -4,10 +4,6 @@ import { View, Text } from 'react-native';
 // IMPORT LIBRARY
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// import screen
-import Dashboard from '../dashboard';
-import Home from '../home'
-
 export default class Mengsplash extends Component {
     componentDidMount() {
         AsyncStorage.getItem('token')
