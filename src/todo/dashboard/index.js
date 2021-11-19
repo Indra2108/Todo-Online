@@ -10,7 +10,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // IMPORT GAMBAR
 import edit from '../assets/edit.png';
 import buang from '../assets/remove.png';
-import tambah from '../assets/plus.png'
+import tambah from '../assets/plus.png';
+import refresh from '../assets/refresh.png';
 
 export default class Dashboard extends Component {
     constructor() {
@@ -70,10 +71,17 @@ export default class Dashboard extends Component {
                 <ScrollView>
                     <this.DaftarList />
                 </ScrollView>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('ToDoInput')} style={styles.backgroundInput}>
+                <View style={styles.backgroundInput}>
                     <Text>Tambah Task</Text>
-                    <Image source={tambah} style={styles.tambahlogo} />
-                </TouchableOpacity>
+                    <View style={styles.gambarlogo}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('ToDoInput')}>
+                            <Image source={tambah} style={styles.tambahlogo} />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.mengGetTodo()}>
+                            <Image source={refresh} style={styles.tambahlogo} />
+                        </TouchableOpacity>
+                    </View>
+                </View>
             </View>
         )
     }

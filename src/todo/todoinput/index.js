@@ -30,6 +30,7 @@ export default class ToDoInput extends Component {
         let formData = new FormData()
         formData.append('title', this.state.title);
         formData.append('note', this.state.note);
+
         fetch('https://api-todoapp-pp.herokuapp.com/api/todo', {
             method: 'POST',
             body: formData,
@@ -38,11 +39,16 @@ export default class ToDoInput extends Component {
                 Authorization: `bearer ${this.state.token}`,
                 Accept: 'application/json'
             },
-            
         })
             .then(response => response.json())
-            .then(respon => console.log(respon))
-            .catch(e => console.log(e))
+            .then(respon => {
+                console.log(respon)
+                alert('Berhasil terkirim')
+            })
+            .catch(e => { 
+                console.log(e)
+                alert(e)
+            })
     }
 
     render() {

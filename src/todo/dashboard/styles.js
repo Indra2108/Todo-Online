@@ -26,6 +26,9 @@ export default StyleSheet.create({
     textInput: {
 
     },
+    gambarlogo: {
+        flexDirection: 'row',
+    },
     editlogo: {
         width: 40,
         height: 40
