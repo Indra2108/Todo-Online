@@ -5,39 +5,15 @@ export default StyleSheet.create({
         flex: 1,
         padding: 20,
     },
-    list: {
-        width: '100%',
-        flexDirection: 'row',
-        padding: 10,
+    backgroundList: {
         backgroundColor: 'pink',
-        borderRadius: 10,
-        marginTop: '3%',
-        justifyContent: 'space-between',
-        alignItems: 'center'
     },
-    backgroundIndex: {
-        width: '13%',
-        padding: 10,
-        backgroundColor: 'blue',
-        marginRight: 10,
-        alignItems: 'center',
-        borderRadius: 10
+    backgroundtitle: {
+        padding: 5,
+        backgroundColor: 'blue'
     },
-    textIndex: {
-        color: 'white'
-    },
-    backgroundValue: {
-        width: '70%',
-        padding: 10,
-        backgroundColor: 'blue',
-        marginRight: 10,
-        borderRadius: 10,
-    },
-    value: {
-        color: 'white'
-    },
-    backgroundGambar: {
-        flexDirection: 'row',
+    backgroundnote: {
+
     },
     backgroundInput: {
         padding: 15,

@@ -44,24 +44,20 @@ export default class Dashboard extends Component {
             .then(response => {
                 console.log(response)
                 this.setState({ dataToDo: response.data })
+                console.log(this.state.dataToDo)
             })
             .catch(error => console.log(error))
     }
 
     DaftarList = () => {
-        return this.state.dataToDo.map((value, index) => {
+        return this.state.dataToDo.map((value) => {
             return (
-                <View style={styles.list}>
-                    <View style={styles.backgroundValue}>
-                        <Text style={styles.value}>{value}</Text>
+                <View style={styles.backgroundList}>
+                    <View style={styles.backgroundtitle}>
+                        <Text>{value.title}</Text>
                     </View>
-                    <View style={styles.backgroundGambar}>
-                        <TouchableOpacity>
-                            <Image source={edit} style={styles.editlogo} />
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <Image source={buang} style={styles.buanglogo} />
-                        </TouchableOpacity>
+                    <View style={styles.backgroundnote}>
+                        <Text>{value.note}</Text>
                     </View>
                 </View>
             )
