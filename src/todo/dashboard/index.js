@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, ScrollView, Image } from 'react-native';
 
-// import styles
+// IMPORT STYLES
 import styles from './styles'
 
 // IMPORT LIBRARY
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// IMPORT GAMBAR
+import edit from '../assets/edit.png';
+import buang from '../assets/remove.png';
+import tambah from '../assets/plus.png'
 
 export default class Dashboard extends Component {
     constructor() {
         super();
         this.state = {
             token: '',
-            dataToDo: []
+            dataToDo: [],
+            title: '',
+            note: ''
         }
     }
 
@@ -36,17 +43,40 @@ export default class Dashboard extends Component {
             .then(respon => respon.json())
             .then(response => {
                 console.log(response)
-                this.setState({dataToDo: response.data})
+                this.setState({ dataToDo: response.data })
             })
             .catch(error => console.log(error))
+    }
+
+    DaftarList = () => {
+        return this.state.dataToDo.map((value, index) => {
+            return (
+                <View style={styles.list}>
+                    <View style={styles.backgroundValue}>
+                        <Text style={styles.value}>{value}</Text>
+                    </View>
+                    <View style={styles.backgroundGambar}>
+                        <TouchableOpacity>
+                            <Image source={edit} style={styles.editlogo} />
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Image source={buang} style={styles.buanglogo} />
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            )
+        })
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <Text>Ini Dashboard</Text>
-                <TouchableOpacity style={styles.tombol}>
-                    <Text style={styles.tulisantombol}>HAPUS TOKEN</Text>
+                <ScrollView>
+                    <this.DaftarList />
+                </ScrollView>
+                <TouchableOpacity style={styles.backgroundInput}>
+                    <Text>Tambah Task</Text>
+                    <Image source={tambah} style={styles.tambahlogo} />
                 </TouchableOpacity>
             </View>
         )
