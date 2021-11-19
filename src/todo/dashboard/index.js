@@ -74,7 +74,7 @@ export default class Dashboard extends Component {
                 <ScrollView>
                     <this.DaftarList />
                 </ScrollView>
-                <TouchableOpacity style={styles.backgroundInput}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('ToDoInput')} style={styles.backgroundInput}>
                     <Text>Tambah Task</Text>
                     <Image source={tambah} style={styles.tambahlogo} />
                 </TouchableOpacity>

@@ -6,6 +6,7 @@ import Dashboard from "./src/todo/dashboard";
 import Login from './src/auth/login';
 import Register from './src/auth/register';
 import Userprofiles from "./src/auth/userprofiles";
+import ToDoInput from "./src/todo/todoinput";
 
 // import library
 import { NavigationContainer } from '@react-navigation/native';
@@ -22,6 +23,7 @@ export default class App extends Component {
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Register" component={Register} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
+          <Stack.Screen name="ToDoInput" component={ToDoInput} />
           <Stack.Screen name="Userprofiles" component={Userprofiles} />
         </Stack.Navigator>
       </NavigationContainer>
