@@ -20,35 +20,22 @@ export default class Dashboard extends Component {
             .then(value => {
                 let data = JSON.parse(value)
                 this.setState({ token: data })
-                console.log(`Bearer ${this.state.token}`)
+                console.log(`bearer ${this.state.token}`)
             })
             .then(() => this.mengGetTodo())
     }
 
-    mengGetTodo = async () => {
-        await fetch('https://api-todoapp-pp.herokuapp.com/api/todo', {
+    mengGetTodo = () => {
+        fetch('https://api-todoapp-pp.herokuapp.com/api/todo', {
             method: 'GET',
             redirect: 'follow',
             headers: {
-                Authorization: `Bearer ${this.state.token}`,
+                Authorization: `bearer ${this.state.token}`,
             },
         })
             .then(respon => respon.json())
             .then(response => console.log(response))
             .catch(error => console.log(error))
-    }
-
-    removeDataStorage = async () => {
-        try {
-            await AsyncStorage.removeItem('token')
-                .then(() => {
-                    this.props.navigation.replace('Mengsplash')
-                })
-                .catch((error) => { console.log(error) })
-        } catch (error) {
-            console.log(error)
-        }
-        console.log('Done.')
     }
 
     render() {
