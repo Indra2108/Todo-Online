@@ -7,7 +7,7 @@ import styles from './styles'
 // IMPORT LIBRARY
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default class Dashboard extends Component {
+export default class Userprofiles extends Component {
     removeDataStorage = async () => {
         try {
             await AsyncStorage.removeItem('token')
