@@ -11,7 +11,8 @@ export default class Dashboard extends Component {
     constructor() {
         super();
         this.state = {
-            token: ''
+            token: '',
+            dataToDo: []
         }
     }
 
@@ -20,7 +21,6 @@ export default class Dashboard extends Component {
             .then(value => {
                 let data = JSON.parse(value)
                 this.setState({ token: data })
-                console.log(`bearer ${this.state.token}`)
             })
             .then(() => this.mengGetTodo())
     }
@@ -34,16 +34,18 @@ export default class Dashboard extends Component {
             },
         })
             .then(respon => respon.json())
-            .then(response => console.log(response))
+            .then(response => {
+                console.log(response)
+                this.setState({dataToDo: response.data})
+            })
             .catch(error => console.log(error))
     }
 
     render() {
-        console.log('==> render()')
         return (
             <View style={styles.container}>
                 <Text>Ini Dashboard</Text>
-                <TouchableOpacity style={styles.tombol} onPress={() => this.removeDataStorage()}>
+                <TouchableOpacity style={styles.tombol}>
                     <Text style={styles.tulisantombol}>HAPUS TOKEN</Text>
                 </TouchableOpacity>
             </View>
