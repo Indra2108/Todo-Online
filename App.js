@@ -2,11 +2,12 @@ import React, { Component } from "react";
 
 // import screen
 import Mengsplash from "./src/auth/mengsplash";
-import Dashboard from "./src/todo/dashboard";
 import Login from './src/auth/login';
 import Register from './src/auth/register';
 import Userprofiles from "./src/auth/userprofiles";
-import AddToDo from "./src/todo/todoinput";
+import Dashboard from "./src/todo/dashboard";
+import AddToDo from "./src/todo/addtodo";
+import EditToDo from "./src/todo/edittodo";
 
 // import library
 import { NavigationContainer } from '@react-navigation/native';
@@ -24,6 +25,7 @@ export default class App extends Component {
           <Stack.Screen name="Register" component={Register} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="AddToDo" component={AddToDo} />
+          <Stack.Screen name="EditToDo" component={EditToDo} />
           <Stack.Screen name="Userprofiles" component={Userprofiles} />
         </Stack.Navigator>
       </NavigationContainer>
