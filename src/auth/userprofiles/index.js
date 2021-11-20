@@ -43,7 +43,7 @@ export default class Userprofiles extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>User Profiles</Text>
+                <Text style={styles.teksuser}>User Profiles</Text>
 
                 <TouchableOpacity style={styles.tombol} onPress={() => this.logOutConfirmation()}>
                     <Text style={styles.tulisantombol}>LOG OUT</Text>

@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
     container: {
         flex: 1,
-        padding: 20
+        padding: 20,
+        backgroundColor: 'black'
     },
     header: {
         padding: 20,
@@ -42,9 +43,6 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center'
     },
-    textInput: {
-
-    },
     editlogo: {
         width: 40,
         height: 40
@@ -59,6 +57,6 @@ export default StyleSheet.create({
     },
     buanglogo: {
         width: 30,
-        height: 30
+        height: 30,
     }
 })

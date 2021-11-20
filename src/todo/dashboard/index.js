@@ -92,7 +92,7 @@ export default class Dashboard extends Component {
     DaftarList = () => {
         return this.state.dataToDo.map((value) => {
             return (
-                <View style={styles.backgroundList}>
+                <TouchableOpacity style={styles.backgroundList}>
                     <View style={styles.backgroundtitle}>
                         <Text style={styles.tekstitle}>{value.title}</Text>
                         <TouchableOpacity onPress={() => this.deleteToDoConfirmation(value.id)}>
@@ -102,7 +102,7 @@ export default class Dashboard extends Component {
                     <View style={styles.backgroundnote}>
                         <Text style={styles.teksnote}>{value.note}</Text>
                     </View>
-                </View>
+                </TouchableOpacity>
             )
         })
     }

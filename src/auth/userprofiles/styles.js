@@ -5,7 +5,12 @@ export default StyleSheet.create({
         flex: 1,
         padding: 20,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'black'
+    },
+    teksuser: {
+        color: 'white',
+        fontWeight: 'bold'
     },
     tombol: {
         width: '100%',
