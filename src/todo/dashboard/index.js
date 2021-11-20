@@ -29,6 +29,7 @@ export default class Dashboard extends Component {
             .then(value => {
                 let data = JSON.parse(value)
                 this.setState({ token: data })
+                console.log(this.state.token)
             })
             .then(() => this.mengGetTodo())
     }
@@ -55,10 +56,10 @@ export default class Dashboard extends Component {
             return (
                 <View style={styles.backgroundList}>
                     <View style={styles.backgroundtitle}>
-                        <Text>{value.title}</Text>
+                        <Text style={styles.tekstitle}>{value.title}</Text>
                     </View>
                     <View style={styles.backgroundnote}>
-                        <Text>{value.note}</Text>
+                        <Text style={styles.teksnote}>{value.note}</Text>
                     </View>
                 </View>
             )
