@@ -29,7 +29,7 @@ export default class AddToDo extends Component {
     mengkirimData = () => {
         let formData = new FormData()
         formData.append('title', this.state.title);
-        formData.append('note', this.state.note);
+        formData.append('note', this.state.note)
 
         fetch('https://api-todoapp-pp.herokuapp.com/api/todo', {
             method: 'POST',

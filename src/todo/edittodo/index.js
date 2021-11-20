@@ -8,12 +8,14 @@ import styles from './styles'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default class EditToDo extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
+        let { title, note } = this.props.route.params;
         this.state = {
             token: '',
-            title: '',
-            note: ''
+            title: title,
+            note: note
         }
     }
 
@@ -26,26 +28,30 @@ export default class EditToDo extends Component {
             .catch(e => console.log(e))
     }
 
-    mengkirimData = () => {
-        let formData = new FormData()
-        formData.append('title', this.state.title);
-        formData.append('note', this.state.note);
+    editData = () => {
+        let { id } = this.props.route.params;
 
-        fetch('https://api-todoapp-pp.herokuapp.com/api/todo', {
-            method: 'POST',
-            body: formData,
+        let dataku = JSON.stringify({
+            title: this.state.title,
+            note: this.state.note
+        })
+
+        fetch(`https://api-todoapp-pp.herokuapp.com/api/todo/${id}`, {
+            method: 'PUT',
             redirect: 'follow',
             headers: {
                 Authorization: `bearer ${this.state.token}`,
-                Accept: 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
+            body: dataku
         })
             .then(response => response.json())
             .then(respon => {
                 console.log(respon)
-                alert('Berhasil terkirim')
+                alert('Berhasil diedit')
             })
-            .catch(e => { 
+            .catch(e => {
                 console.log(e)
                 alert(e)
             })
@@ -59,6 +65,7 @@ export default class EditToDo extends Component {
                     placeholder='Judul'
                     style={styles.teksinputjudul}
                     multiline={true}
+                    value={this.state.title}
                     numberOfLines={numOfLinesCompany}
                     onContentSizeChange={(e) => {
                         numOfLinesCompany = e.nativeEvent.contentSize.height / 18;
@@ -70,6 +77,7 @@ export default class EditToDo extends Component {
                     placeholder='Isi Konten'
                     style={styles.teksinputkonten}
                     multiline={true}
+                    value={this.state.note}
                     numberOfLines={numOfLinesCompany}
                     onContentSizeChange={(e) => {
                         numOfLinesCompany = e.nativeEvent.contentSize.height / 18;
@@ -77,8 +85,8 @@ export default class EditToDo extends Component {
                     onChangeText={note => this.setState({ note })}
                 />
                 <View style={styles.tombolkirim}>
-                    <TouchableOpacity onPress={() => this.mengkirimData()} style={styles.tombolkirim2}>
-                        <Text style={styles.tekstombolkirim}>Kirim</Text>
+                    <TouchableOpacity onPress={() => this.editData()} style={styles.tombolkirim2}>
+                        <Text style={styles.tekstombolkirim}>Edit</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Dashboard')} style={styles.tombolkirim3}>
                         <Text style={styles.tekstombolkirim}>Batal</Text>

@@ -92,7 +92,7 @@ export default class Dashboard extends Component {
     DaftarList = () => {
         return this.state.dataToDo.map((value) => {
             return (
-                <TouchableOpacity style={styles.backgroundList}>
+                <TouchableOpacity style={styles.backgroundList} onPress={() => this.props.navigation.navigate('EditToDo', {title: value.title, note: value.note, id: value.id})}>
                     <View style={styles.backgroundtitle}>
                         <Text style={styles.tekstitle}>{value.title}</Text>
                         <TouchableOpacity onPress={() => this.deleteToDoConfirmation(value.id)}>
