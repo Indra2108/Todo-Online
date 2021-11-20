@@ -55,8 +55,8 @@ export default StyleSheet.create({
         width: 40,
         height: 40
     },
-    tambahlogo: {
+    logo: {
         width: 40,
         height: 40
-    }
+    },
 })

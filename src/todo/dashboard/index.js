@@ -12,6 +12,7 @@ import edit from '../assets/edit.png';
 import buang from '../assets/remove.png';
 import tambah from '../assets/plus.png';
 import refresh from '../assets/refresh.png';
+import userprofile from '../assets/user.png';
 
 export default class Dashboard extends Component {
     constructor() {
@@ -76,10 +77,13 @@ export default class Dashboard extends Component {
                     <Text>Tambah Task</Text>
                     <View style={styles.gambarlogo}>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('AddToDo')}>
-                            <Image source={tambah} style={styles.tambahlogo} />
+                            <Image source={tambah} style={styles.logo} />
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => this.mengGetTodo()}>
-                            <Image source={refresh} style={styles.tambahlogo} />
+                            <Image source={refresh} style={styles.logo} />
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Userprofiles')}>
+                            <Image source={userprofile} style={styles.logo} />
                         </TouchableOpacity>
                     </View>
                 </View>
