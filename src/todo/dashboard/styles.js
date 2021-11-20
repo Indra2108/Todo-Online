@@ -36,16 +36,12 @@ export default StyleSheet.create({
     backgroundInput: {
         padding: 15,
         backgroundColor: 'yellow',
-        borderRadius: 10,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
     },
     textInput: {
 
-    },
-    gambarlogo: {
-        flexDirection: 'row',
     },
     editlogo: {
         width: 40,

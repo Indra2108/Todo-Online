@@ -74,18 +74,15 @@ export default class Dashboard extends Component {
                     <this.DaftarList />
                 </ScrollView>
                 <View style={styles.backgroundInput}>
-                    <Text>Tambah Task</Text>
-                    <View style={styles.gambarlogo}>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('AddToDo')}>
-                            <Image source={tambah} style={styles.logo} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.mengGetTodo()}>
-                            <Image source={refresh} style={styles.logo} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Userprofiles')}>
-                            <Image source={userprofile} style={styles.logo} />
-                        </TouchableOpacity>
-                    </View>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Userprofiles')}>
+                        <Image source={userprofile} style={styles.logo} />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('AddToDo')}>
+                        <Image source={tambah} style={styles.logo} />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.mengGetTodo()}>
+                        <Image source={refresh} style={styles.logo} />
+                    </TouchableOpacity>
                 </View>
             </View>
         )
