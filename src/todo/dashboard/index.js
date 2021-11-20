@@ -92,9 +92,10 @@ export default class Dashboard extends Component {
     DaftarList = () => {
         return this.state.dataToDo.map((value) => {
             return (
-                <TouchableOpacity style={styles.backgroundList} onPress={() => this.props.navigation.navigate('EditToDo', {title: value.title, note: value.note, id: value.id})}>
+                <TouchableOpacity style={styles.backgroundList} onPress={() => this.props.navigation.navigate('EditToDo', { title: value.title, note: value.note, id: value.id })}>
                     <View style={styles.backgroundtitle}>
                         <Text style={styles.tekstitle}>{value.title}</Text>
+                        
                         <TouchableOpacity onPress={() => this.deleteToDoConfirmation(value.id)}>
                             <Image source={buang} style={styles.buanglogo} />
                         </TouchableOpacity>
@@ -113,13 +114,16 @@ export default class Dashboard extends Component {
                 <ScrollView>
                     <this.DaftarList />
                 </ScrollView>
+
                 <View style={styles.backgroundInput}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Userprofiles')}>
                         <Image source={userprofile} style={styles.logo} />
                     </TouchableOpacity>
+
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('AddToDo')}>
                         <Image source={tambah} style={styles.logo} />
                     </TouchableOpacity>
+
                     <TouchableOpacity onPress={() => this.mengGetTodo()}>
                         <Image source={refresh} style={styles.logo} />
                     </TouchableOpacity>

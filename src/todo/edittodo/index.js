@@ -10,7 +10,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export default class EditToDo extends Component {
     constructor(props) {
         super(props);
-
         let { title, note } = this.props.route.params;
         this.state = {
             token: '',
@@ -88,6 +87,7 @@ export default class EditToDo extends Component {
                     <TouchableOpacity onPress={() => this.editData()} style={styles.tombolkirim2}>
                         <Text style={styles.tekstombolkirim}>Edit</Text>
                     </TouchableOpacity>
+                    
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Dashboard')} style={styles.tombolkirim3}>
                         <Text style={styles.tekstombolkirim}>Batal</Text>
                     </TouchableOpacity>

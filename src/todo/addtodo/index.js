@@ -45,7 +45,7 @@ export default class AddToDo extends Component {
                 console.log(respon)
                 alert('Berhasil terkirim')
             })
-            .catch(e => { 
+            .catch(e => {
                 console.log(e)
                 alert(e)
             })

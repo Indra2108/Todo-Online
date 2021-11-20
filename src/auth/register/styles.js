@@ -14,9 +14,6 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
         padding: 10,
     },
-    textinput: {
-
-    },
     eye: {
         width: 30,
         height: 30,

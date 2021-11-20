@@ -8,13 +8,11 @@ export default StyleSheet.create({
     },
     header: {
         padding: 20,
-
     },
     backgroundList: {
         backgroundColor: 'pink',
         marginVertical: 10,
         padding: 15,
-        
     },
     backgroundtitle: {
         padding: 5,

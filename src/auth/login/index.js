@@ -51,7 +51,6 @@ export default class Login extends Component {
         console.log('Done.')
     }
 
-
     loginData = () => {
         let dataku = {
             email: this.state.email,
@@ -110,18 +109,6 @@ export default class Login extends Component {
                     <Text>Belum punya akun? </Text>
                     <Text onPress={() => this.props.navigation.navigate('Register')} style={styles.tekspunyaakun}>REGISTER</Text>
                 </View>
-
-                {/* <TouchableOpacity style={styles.tombol} onPress={() => alert(this.state.token)}>
-                    <Text style={styles.tulisantombol}>GET TOKEN FROM API</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.tombol} onPress={() => this.readDataStorage()}>
-                    <Text style={styles.tulisantombol}>GET TOKEN FROM ASYNCSTORAGE</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.tombol} onPress={() => this.removeDataStorage()}>
-                    <Text style={styles.tulisantombol}>DELETE TOKEN FROM ASYNCSTORAGE</Text>
-                </TouchableOpacity> */}
             </View>
         )
     }

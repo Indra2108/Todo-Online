@@ -23,5 +23,4 @@ export default class Mengsplash extends Component {
             <Text>xxx</Text>
         )
     }
-
 }
