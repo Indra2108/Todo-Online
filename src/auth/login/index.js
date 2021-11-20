@@ -5,8 +5,8 @@ import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import styles from "./styles";
 
 // IMPORT PICTURE
-import open from '../../assets/eye.png';
-import close from '../../assets/hidden.png';
+import open from '../assets/eye.png';
+import close from '../assets/hidden.png';
 
 // IMPORT LIBRARY
 import AsyncStorage from '@react-native-async-storage/async-storage';
