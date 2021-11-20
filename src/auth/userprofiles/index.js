@@ -8,6 +8,22 @@ import styles from './styles'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default class Userprofiles extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+            token: ''
+        }
+
+        AsyncStorage.getItem('token')
+            .then(value => {
+                let data = JSON.parse(value)
+                this.setState({ token: data })
+                console.log(this.state.token)
+            })
+            .catch(e => console.log(e))
+    }
+
     removeDataStorage = async () => {
         try {
             await AsyncStorage.removeItem('token')
@@ -17,7 +33,24 @@ export default class Userprofiles extends Component {
         } catch (error) {
             console.log(error)
         }
-        console.log('Done.')
+        console.log('Remove data from AsyncStorage [Done].')
+    }
+
+    logOut = () => {
+        fetch('https://api-todoapp-pp.herokuapp.com/api/auth/logout', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                Authorization: `bearer ${this.state.token}`
+            },
+            redirect: 'follow'
+        })
+            .then(response => response.json())
+            .then(respon => {
+                console.log(respon)
+                this.removeDataStorage()
+            })
+            .catch(e => console.log(e))
     }
 
     logOutConfirmation = () => {
@@ -27,7 +60,7 @@ export default class Userprofiles extends Component {
             [
                 {
                     text: "Oke",
-                    onPress: () => this.removeDataStorage()
+                    onPress: () => this.logOut()
                 },
                 {
                     text: 'Batal',
