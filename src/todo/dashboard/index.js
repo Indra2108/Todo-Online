@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, TextInput, ScrollView, Image } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Image, Alert } from 'react-native';
 
 // IMPORT STYLES
 import styles from './styles'
@@ -52,12 +52,52 @@ export default class Dashboard extends Component {
             .catch(error => console.log(error))
     }
 
+    deleteToDo = (id) => {
+        fetch(`https://api-todoapp-pp.herokuapp.com/api/todo/${id}`, {
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                Authorization: `bearer ${this.state.token}`
+            },
+            redirect: 'follow'
+        })
+            .then(response => response.json())
+            .then(respon => {
+                console.log(respon)
+                this.mengGetTodo()
+            })
+            .catch(e => console.log(e))
+    }
+
+    deleteToDoConfirmation = (value) => {
+        Alert.alert(
+            "Perhatian!",
+            "Apa anda yakin ingin menghapus todo yang ini?",
+            [
+                {
+                    text: "Oke",
+                    onPress: () => this.deleteToDo(value)
+                },
+                {
+                    text: 'Batal',
+                    style: "cancel"
+                }
+            ],
+            {
+                cancelable: true
+            }
+        )
+    }
+
     DaftarList = () => {
         return this.state.dataToDo.map((value) => {
             return (
                 <View style={styles.backgroundList}>
                     <View style={styles.backgroundtitle}>
                         <Text style={styles.tekstitle}>{value.title}</Text>
+                        <TouchableOpacity onPress={() => this.deleteToDoConfirmation(value.id)}>
+                            <Image source={buang} style={styles.buanglogo} />
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.backgroundnote}>
                         <Text style={styles.teksnote}>{value.note}</Text>

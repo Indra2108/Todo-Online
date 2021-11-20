@@ -18,6 +18,9 @@ export default StyleSheet.create({
     backgroundtitle: {
         padding: 5,
         backgroundColor: 'grey',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
     tekstitle: {
         color: 'white',
@@ -27,7 +30,6 @@ export default StyleSheet.create({
     backgroundnote: {
         padding: 5,
         backgroundColor: 'brown',
-        
         marginTop: 10
     },
     teksnote: {
@@ -55,4 +57,8 @@ export default StyleSheet.create({
         width: 40,
         height: 40
     },
+    buanglogo: {
+        width: 30,
+        height: 30
+    }
 })
