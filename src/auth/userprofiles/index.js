@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 
 // import styles
 import styles from './styles'
@@ -20,12 +20,32 @@ export default class Userprofiles extends Component {
         console.log('Done.')
     }
 
+    logOutConfirmation = () => {
+        Alert.alert(
+            "Perhatian!",
+            "Apa anda yakin ingin logout?",
+            [
+                {
+                    text: "Oke",
+                    onPress: () => this.removeDataStorage()
+                },
+                {
+                    text: 'Batal',
+                    style: "cancel"
+                }
+            ],
+            {
+                cancelable: true
+            }
+        )
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <Text>User Profiles</Text>
 
-                <TouchableOpacity style={styles.tombol} onPress={() => this.removeDataStorage()}>
+                <TouchableOpacity style={styles.tombol} onPress={() => this.logOutConfirmation()}>
                     <Text style={styles.tulisantombol}>LOG OUT</Text>
                 </TouchableOpacity>
             </View>
