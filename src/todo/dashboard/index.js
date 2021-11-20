@@ -75,7 +75,7 @@ export default class Dashboard extends Component {
                 <View style={styles.backgroundInput}>
                     <Text>Tambah Task</Text>
                     <View style={styles.gambarlogo}>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('ToDoInput')}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('AddToDo')}>
                             <Image source={tambah} style={styles.tambahlogo} />
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => this.mengGetTodo()}>

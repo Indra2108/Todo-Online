@@ -7,7 +7,7 @@ import styles from './styles'
 // IMPORT LIBRARY
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default class ToDoInput extends Component {
+export default class AddToDo extends Component {
     constructor() {
         super();
         this.state = {
