@@ -17,6 +17,7 @@ import userprofile from '../assets/user.png';
 export default class Dashboard extends Component {
     constructor() {
         super();
+        console.log('==> constructor')
         this.state = {
             token: '',
             dataToDo: [],
@@ -26,6 +27,7 @@ export default class Dashboard extends Component {
     }
 
     componentDidMount() {
+        console.log('==> componentDidMount()')
         AsyncStorage.getItem('token')
             .then(value => {
                 let data = JSON.parse(value)
@@ -36,6 +38,7 @@ export default class Dashboard extends Component {
     }
 
     mengGetTodo = () => {
+        console.log('==> Get TodoAPI')
         fetch('https://api-todoapp-pp.herokuapp.com/api/todo', {
             method: 'GET',
             redirect: 'follow',
@@ -53,6 +56,7 @@ export default class Dashboard extends Component {
     }
 
     deleteToDo = (id) => {
+        console.log('==> Delete TodoAPI');
         fetch(`https://api-todoapp-pp.herokuapp.com/api/todo/${id}`, {
             method: 'DELETE',
             headers: {
@@ -70,13 +74,14 @@ export default class Dashboard extends Component {
     }
 
     deleteToDoConfirmation = (value) => {
+        console.log('==> Confirmation Prompt');
         Alert.alert(
             "Perhatian!",
             "Apa anda yakin ingin menghapus todo yang ini?",
             [
                 {
                     text: "Oke",
-                    onPress: () => this.deleteToDo(value)
+                    onPress: () => this.deleteToDo(value),
                 },
                 {
                     text: 'Batal',
@@ -109,6 +114,7 @@ export default class Dashboard extends Component {
     }
 
     render() {
+        console.log('==> render()')
         return (
             <View style={styles.container}>
                 <ScrollView>

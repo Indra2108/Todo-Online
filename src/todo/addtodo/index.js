@@ -43,7 +43,7 @@ export default class AddToDo extends Component {
             .then(response => response.json())
             .then(respon => {
                 console.log(respon)
-                alert('Berhasil terkirim')
+                this.props.navigation.replace('Dashboard')
             })
             .catch(e => {
                 console.log(e)

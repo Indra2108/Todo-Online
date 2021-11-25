@@ -48,7 +48,7 @@ export default class EditToDo extends Component {
             .then(response => response.json())
             .then(respon => {
                 console.log(respon)
-                alert('Berhasil diedit')
+                this.props.navigation.replace('Dashboard')
             })
             .catch(e => {
                 console.log(e)
